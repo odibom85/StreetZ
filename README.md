@@ -1,24 +1,27 @@
-# StreetZ
-Multiplayer Basketball game being developed for final dissertation 
+# StreetZ - Networked Multiplayer Basketball
 
-downloadable file for the game in directory called StreetZ, very barebones architecture for the game just basic movement and botched shooting system.
+A Networked Multiplayer Basketball Game: Server-Authoritative State Synchronisation 
+for Real-Time Play over the Public Internet.
 
-Control:
-Controller
+**Author:** Michael Alexander Odibo (31801268)  
+**Supervisor:** Dr Martin Lester  
+**Module:** CS3IP - Individual Project, University of Reading  
+**Submission:** 1 May 2026
 
-left stick movement 
-right stick dribling side 
-X shoot 
-Right Trigger Sprint 
+## Project structure
 
-Patch Notes 
-Basic stamina in game however not tuned, works but needs to be scaled down significantly 
-shooting mechanic not currently working in middle of update
-Working on Game Manager for Game flow, Shot counter, Spawns, logic. 
+- `Assets/Scripts/` - all C# scripts (21 files, ~4000 lines)
+- See dissertation Appendix A for the per-file responsibility table
 
+## Building
 
-Added a Dynamic Camera giving game a better overall feel 
-Improved feel for movement in the game 
-Changed stamina bar from regular slider to color changing in hue indicating players energy levels 
+Built with Unity 6 (LTS). Open the project in Unity Hub, allow it to import 
+packages (Netcode for GameObjects, Unity Lobby, Unity Relay, Unity Authentication, 
+Cinemachine, TextMeshPro), then open the GameScene from `Assets/Scenes/`.
 
-Build.in.Development.
+## Networking
+
+Uses Unity Relay for transport, Unity Lobby for matchmaking, anonymous Unity 
+Authentication for sign-in. No self-hosted infrastructure required - the host 
+allocates a Relay slot at runtime and shares the resulting six-character join 
+code with the joining client.
